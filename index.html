@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ChronoSync | IST-CT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a0b2e">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1>ChronoSync</h1>
+            <p>IST ⇌ CT Time & Deadlines</p>
+        </header>
+
+        <nav class="glass-tabs">
+            <button class="tab-btn active" data-target="converter"><i class="fa-solid fa-right-left"></i> Converter</button>
+            <button class="tab-btn" data-target="clocks"><i class="fa-regular fa-clock"></i> Clocks</button>
+            <button class="tab-btn" data-target="deadlines"><i class="fa-solid fa-thumbtack"></i> Deadlines</button>
+        </nav>
+
+        <main class="tab-content">
+            <!-- Converter Tab -->
+            <section id="converter" class="tab-pane active">
+                <div class="glass-panel">
+                    <h2>Time Converter</h2>
+                    <div class="converter-box">
+                        <div class="input-group">
+                            <label>From:</label>
+                            <select id="from-tz">
+                                <option value="Asia/Kolkata">IST (Indian Standard Time)</option>
+                                <option value="America/Chicago">CT (Central Time - US)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Date & Time:</label>
+                            <input type="datetime-local" id="convert-datetime">
+                        </div>
+                        <button id="swap-tz-btn" class="icon-btn" title="Swap Timezones"><i class="fa-solid fa-retweet"></i></button>
+                        <div class="input-group">
+                            <label>To:</label>
+                            <select id="to-tz" disabled>
+                                <option value="America/Chicago">CT (Central Time - US)</option>
+                                <option value="Asia/Kolkata">IST (Indian Standard Time)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box" id="conversion-result">
+                        <span class="placeholder-text">Select date and time to convert</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- World Clock Tab -->
+            <section id="clocks" class="tab-pane">
+                <div class="clocks-grid">
+                    <div class="glass-panel clock-card">
+                        <h3>India (IST)</h3>
+                        <div class="time-display" id="ist-time">--:--:--</div>
+                        <div class="date-display" id="ist-date">---</div>
+                        <div class="diff-badge">Home</div>
+                    </div>
+                    <div class="glass-panel clock-card">
+                        <h3>UT Austin (CT)</h3>
+                        <div class="time-display" id="ct-time">--:--:--</div>
+                        <div class="date-display" id="ct-date">---</div>
+                        <div class="diff-badge" id="time-diff-badge">---</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deadlines Tab -->
+            <section id="deadlines" class="tab-pane">
+                <div class="glass-panel">
+                    <h2>Deadline Tracker</h2>
+                    <p class="subtitle">Enter your UT Austin deadlines in CT, track them in IST.</p>
+                    
+                    <form id="deadline-form" class="deadline-form">
+                        <input type="text" id="dl-title" placeholder="Assignment Name..." required>
+                        <input type="datetime-local" id="dl-datetime" required title="Deadline in Central Time (CT)">
+                        <button type="submit" class="primary-btn">Add Deadline</button>
+                    </form>
+
+                    <div class="deadlines-list" id="deadlines-container">
+                        <!-- Deadlines injected here via JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
