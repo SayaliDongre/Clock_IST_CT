@@ -2,7 +2,7 @@
     "name": "ChronoSync IST-CT",
     "short_name": "ChronoSync",
     "description": "A time tracking and deadline management tool for IST and CT.",
-    "start_url": "./index.html",
+    "start_url": ".",
     "display": "standalone",
     "background_color": "#0b071a",
     "theme_color": "#0b071a",
@@ -10,12 +10,14 @@
         {
             "src": "icon-192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "icon-512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
